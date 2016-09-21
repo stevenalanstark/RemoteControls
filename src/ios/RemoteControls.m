@@ -29,7 +29,7 @@ static RemoteControls *remoteControls = nil;
     NSString *cover = [command.arguments objectAtIndex:3];
     NSNumber *duration = [command.arguments objectAtIndex:4];
     NSNumber *elapsed = [command.arguments objectAtIndex:5];
-   
+    
     // async cover loading
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
         UIImage *image = nil;
