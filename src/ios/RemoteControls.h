@@ -15,7 +15,7 @@
 @interface RemoteControls : CDVPlugin {
 }
 
-- (void)updateMetas:(CDVInvokedUrlCommand*)command;
+- (void)updateMetadata:(CDVInvokedUrlCommand*)command;
 - (void)receiveRemoteEvent:(NSNotification *)notification;
 
 @end
