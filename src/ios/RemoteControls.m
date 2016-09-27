@@ -23,12 +23,15 @@ static RemoteControls *remoteControls = nil;
 
 - (void)updateMetadata:(CDVInvokedUrlCommand*)command
 {
-    NSString *artist = [command.arguments objectAtIndex:0];
-    NSString *title = [command.arguments objectAtIndex:1];
-    NSString *album = [command.arguments objectAtIndex:2];
-    NSString *cover = [command.arguments objectAtIndex:3];
-    NSNumber *duration = [command.arguments objectAtIndex:4];
-    NSNumber *elapsed = [command.arguments objectAtIndex:5];
+    //NSLog(command.arguments);
+    NSDictionary *params = [command.arguments objectAtIndex:0];
+
+    NSString *artist = params[@"artist"];
+    NSString *title = params[@"title"];
+    NSString *album = params[@"album"];
+    NSString *cover = params[@"cover"];
+    NSNumber *duration = params[@"duration"];
+    NSNumber *elapsed = params[@"elapsed"];
 
     // async cover loading
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
