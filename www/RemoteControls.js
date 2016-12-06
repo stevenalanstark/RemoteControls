@@ -29,7 +29,8 @@ remoteControls.updateMetas = function(success, fail, params) {
         title: params[1],
         album: params[2],
         cover: params[3],
-        duration: params[4]
+        duration: params[4],
+        elapsed: params[5]
     }, success, fail);
 };
 
