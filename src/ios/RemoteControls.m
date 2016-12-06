@@ -84,6 +84,20 @@ static RemoteControls *remoteControls = nil;
                         [NSNumber numberWithInt:1], MPNowPlayingInfoPropertyPlaybackRate, nil];
                 }
             });
+        } else {
+            // no image
+            dispatch_async(dispatch_get_main_queue(), ^{
+                if (NSClassFromString(@"MPNowPlayingInfoCenter")) {
+                    MPNowPlayingInfoCenter *center = [MPNowPlayingInfoCenter defaultCenter];
+                    center.nowPlayingInfo = [NSDictionary dictionaryWithObjectsAndKeys:
+                                             artist, MPMediaItemPropertyArtist,
+                                             title, MPMediaItemPropertyTitle,
+                                             album, MPMediaItemPropertyAlbumTitle,
+                                             duration, MPMediaItemPropertyPlaybackDuration,
+                                             elapsed, MPNowPlayingInfoPropertyElapsedPlaybackTime,
+                                             [NSNumber numberWithInt:1], MPNowPlayingInfoPropertyPlaybackRate, nil];
+                }
+            });
         }
     });
 }
